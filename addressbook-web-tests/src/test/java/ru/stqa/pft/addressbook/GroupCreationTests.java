@@ -5,6 +5,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 //import org.apache.commons.io.FileUtils;
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class GroupCreationTests {
   private WebDriver wd;
@@ -16,6 +17,7 @@ public class GroupCreationTests {
     System.setProperty("chromedriver.chrome.driver", "path_here");
     wd = new ChromeDriver();
     wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+    //wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     //js = (JavascriptExecutor) wd;
     wd.get("http://localhost/addressbook/group.php");
     login("admin", "secret");
