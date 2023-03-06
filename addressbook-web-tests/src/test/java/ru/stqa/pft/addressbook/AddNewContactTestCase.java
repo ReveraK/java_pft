@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook;
 
 import java.util.concurrent.TimeUnit;
+
 import org.testng.annotations.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -13,12 +14,12 @@ public class AddNewContactTestCase {
   @BeforeMethod(alwaysRun = true)
   public void setUp() throws Exception {
     wd = new FirefoxDriver();
-    wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    wd.get("http://localhost/addressbook/edit.php");
+    login();
   }
 
-  @Test
-  public void testAddNewContact() throws Exception {
-    wd.get("http://localhost/addressbook/edit.php");
+  private void login() {
     wd.findElement(By.name("user")).click();
     wd.findElement(By.name("user")).clear();
     wd.findElement(By.name("user")).sendKeys("admin");
@@ -26,7 +27,21 @@ public class AddNewContactTestCase {
     wd.findElement(By.name("pass")).clear();
     wd.findElement(By.name("pass")).sendKeys("secret");
     wd.findElement(By.xpath("//input[@value='Login']")).click();
-    wd.findElement(By.linkText("add new")).click();
+  }
+
+  @Test
+  public void testAddNewContact() throws Exception {
+
+    gotoAddNew();
+    fillContactForm();
+    submitContact();
+  }
+
+  private void submitContact() {
+    wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+  }
+
+  private void fillContactForm() {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
     wd.findElement(By.name("firstname")).sendKeys("Elizabeth");
@@ -75,15 +90,21 @@ public class AddNewContactTestCase {
     wd.findElement(By.name("new_group")).click();
     new Select(wd.findElement(By.name("new_group"))).selectByVisibleText("test");
     wd.findElement(By.xpath("//div[@id='content']/form/select[5]/option[2]")).click();
-    wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+  }
+
+  private void gotoAddNew() {
     wd.findElement(By.linkText("add new")).click();
-    wd.findElement(By.linkText("home")).click();
-    wd.findElement(By.linkText("Logout")).click();
   }
 
   @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
+    logOut();
     wd.quit();
+  }
+
+  private void logOut() {
+    wd.findElement(By.linkText("home")).click();
+    wd.findElement(By.linkText("Logout")).click();
   }
 
   private boolean isElementPresent(By by) {
