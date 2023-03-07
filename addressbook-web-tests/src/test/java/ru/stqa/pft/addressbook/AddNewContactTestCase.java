@@ -36,7 +36,7 @@ public class AddNewContactTestCase {
     fillContactForm(new ContactData("Elizabeth", "Alexandra", "Mary",
             "Queen", "Elizabeth 2", "monarch", "house of Windsor", "123456",
             "9115641235", "654321", "654321", "eliza@gmail.ru", "6",
-            "February", "1952", "test"));
+            "February", "1952", "test name"));
     submitContact();
   }
 
