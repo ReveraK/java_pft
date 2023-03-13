@@ -84,10 +84,10 @@ public class AddNewContactTestCase {
     wd.findElement(By.name("email")).sendKeys(contactData.email());
     wd.findElement(By.name("bday")).click();
     new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.bday());
-    wd.findElement(By.xpath("//option[@value='6']")).click();
+    wd.findElement(By.xpath("//option[@value='"+ contactData.bday() +"']")).click();
     wd.findElement(By.name("bmonth")).click();
     new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.bmonth());
-    wd.findElement(By.xpath("//option[@value='February']")).click();
+    wd.findElement(By.xpath("//option[@value='" + contactData.bmonth() +"']")).click();
     wd.findElement(By.name("byear")).click();
     wd.findElement(By.name("byear")).clear();
     wd.findElement(By.name("byear")).sendKeys(contactData.byear());
