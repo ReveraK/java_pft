@@ -31,18 +31,7 @@ public class HelperBase {
     }
   }
 
-  public String closeAlertAndGetItsText(boolean acceptNextAlert) {
-    try {
-      Alert alert = wd.switchTo().alert();
-      String alertText = alert.getText();
-      if (acceptNextAlert) {
-        alert.accept();
-      } else {
-        alert.dismiss();
-      }
-      return alertText;
-    } finally {
-      acceptNextAlert = true;
-    }
+  public void accept(){
+    wd.switchTo().alert().accept();
   }
 }
