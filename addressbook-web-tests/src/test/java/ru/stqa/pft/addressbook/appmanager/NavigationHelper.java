@@ -10,7 +10,13 @@ public class NavigationHelper extends HelperBase{
     super(wd);
   }
 
+  public void gotoPage(String nameButton) {
+    click(By.linkText(nameButton));
+  }
   public void gotoGroupPage() {
-    click(By.linkText("groups"));
+    gotoPage("groups");
+  }
+  public void gotoAddNew() {
+    gotoPage("add new");
   }
 }

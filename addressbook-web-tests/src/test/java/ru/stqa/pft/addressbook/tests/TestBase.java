@@ -11,7 +11,7 @@ public class TestBase {
   @BeforeMethod(alwaysRun = true)
   public void setUp() throws Exception {
     //System.setProperty("webdriver.chrome.driver", "path_here");
-    System.setProperty("chromedriver.chrome.driver", "path_here");
+    //System.setProperty("chromedriver.chrome.driver", "path_here");
     app.init();
   }
 

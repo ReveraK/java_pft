@@ -13,6 +13,4 @@ public class GroupDeletionTests extends TestBase {
     app.getGroupsHelper().returnToGoPage();
 
   }
-
-
 }
