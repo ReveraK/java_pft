@@ -42,4 +42,9 @@ public class ContactHelper extends HelperBase {
   public void selectGroup(String name, String value){
     selectComboBox(name, value, "//div[@id='content']/form/select[5]/option[2]");
   }
+  public void DeleteContact() {
+    click(By.xpath("//td/input"));
+    click(By.xpath("//input[@value='Delete']"));
+    closeAlertAndGetItsText(true);
+  }
 }

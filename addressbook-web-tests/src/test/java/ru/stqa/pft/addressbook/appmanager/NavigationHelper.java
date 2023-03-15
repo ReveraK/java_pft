@@ -19,4 +19,8 @@ public class NavigationHelper extends HelperBase{
   public void gotoAddNew() {
     gotoPage("add new");
   }
+  public void gotoHome() {
+    gotoPage("home");
+  }
+
 }
