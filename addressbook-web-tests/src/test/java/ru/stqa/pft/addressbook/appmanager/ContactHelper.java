@@ -12,8 +12,7 @@ public class ContactHelper extends HelperBase {
   public void submitContactCreation() {
     click(By.name("submit"));
   }
-  public void creationContact(ContactData contactData) {
-
+  public void fillContact(ContactData contactData) {
     type(By.name("firstname"), contactData.firstname());
     type(By.name("middlename"), contactData.middlename());
     type(By.name("lastname"), contactData.lastname());
@@ -29,14 +28,22 @@ public class ContactHelper extends HelperBase {
     selectDate("bday", contactData.bday());
     selectDate("bmonth", contactData.bmonth());
     type(By.name("byear"), contactData.byear());
+  }
+  public void creationContact(ContactData contactData) {
+    fillContact(contactData);
     selectGroup("new_group", contactData.group());
   }
+  public void modificationContact(ContactData contactData) {
+    fillContact(contactData);
+  }
+
   private void selectComboBox(String name, String value, String xpath){
     click(By.name(name));
     new Select(wd.findElement(By.name(name))).selectByVisibleText(value);
     click(By.xpath(xpath));
   }
   public void selectDate(String name, String value){
+
     selectComboBox(name, value, "//option[@value='"+ value +"']");
   }
   public void selectGroup(String name, String value){
@@ -47,4 +54,14 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//input[@value='Delete']"));
     accept();
   }
+  public void changeContact() {
+    click(By.xpath("//img[@alt='Edit']"));
+  }
+
+  public void submitContactModification() {
+    click(By.name("update"));
+
+  }
+
+
 }
