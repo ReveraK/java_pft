@@ -3,6 +3,7 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase {
@@ -12,7 +13,7 @@ public class ContactHelper extends HelperBase {
   public void submitContactCreation() {
     click(By.name("submit"));
   }
-  public void fillContact(ContactData contactData) {
+  public void fillContact(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.firstname());
     type(By.name("middlename"), contactData.middlename());
     type(By.name("lastname"), contactData.lastname());
@@ -28,13 +29,17 @@ public class ContactHelper extends HelperBase {
     selectDate("bday", contactData.bday());
     selectDate("bmonth", contactData.bmonth());
     type(By.name("byear"), contactData.byear());
-  }
-  public void creationContact(ContactData contactData) {
-    fillContact(contactData);
-    selectGroup("new_group", contactData.group());
-  }
-  public void modificationContact(ContactData contactData) {
-    fillContact(contactData);
+
+    if (creation) {
+      selectGroup("new_group", contactData.group());
+    }
+    else {
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
+    }
+    //if (isElementPresent(By.name("new_group"))) {
+      //new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.group());
+     // selectGroup("new_group", contactData.group());
+    //}
   }
 
   private void selectComboBox(String name, String value, String xpath){

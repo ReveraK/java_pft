@@ -8,10 +8,10 @@ public class ContactModificationTest extends TestBase {
   public void testContactModification () {
     app.getNavigationHelper().gotoHome();
     app.getContactHelper().changeContact();
-    app.getContactHelper().modificationContact(new ContactData("Kate", "Helen", " ",
+    app.getContactHelper().fillContact(new ContactData("Kate", "Helen", " ",
             " ", "Katherin 2", "monarch", "house of Windsor", "123456",
             "9115641235", "654321", "654321", "eliza@gmail.ru", "6",
-            "February", "1952",  null));
+            "February", "1952",  null), false);
     app.getContactHelper().submitContactModification();
 
   }

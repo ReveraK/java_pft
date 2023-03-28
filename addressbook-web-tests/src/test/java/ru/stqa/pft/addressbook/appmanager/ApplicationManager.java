@@ -42,7 +42,7 @@ public class ApplicationManager {
     //wd = new ChromeDriver();
     //wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
-    wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/group.php");
     groupsHelper = new GroupsHelper(wd);
     navigationHelper = new NavigationHelper(wd);
