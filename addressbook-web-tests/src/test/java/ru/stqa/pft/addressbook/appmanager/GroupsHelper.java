@@ -6,6 +6,7 @@ import ru.stqa.pft.addressbook.model.GroupData;
 
 public class GroupsHelper extends HelperBase {
 
+
   public GroupsHelper(WebDriver wd) {
     super(wd);
   }
@@ -53,5 +54,9 @@ public class GroupsHelper extends HelperBase {
 
   public boolean isThereAGroup() {
     return  isElementPresent(By.name("selected[]"));
+  }
+
+  public int getGroupCount() {
+    return wd.findElements(By.name("selected[]")).size();
   }
 }
