@@ -16,7 +16,7 @@ public final class GroupData {
 
 
   public GroupData(String name, String heder, String footer) {
-    this.id = 0;
+    this.id = Integer.MAX_VALUE;
     this.name = name;
     this.heder = heder;
     this.footer = footer;
@@ -50,16 +50,17 @@ public final class GroupData {
             ", id='" + id + '\'' +
             '}';
   }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     GroupData groupData = (GroupData) o;
-    return id == groupData.id && Objects.equals(name, groupData.name);
+    return Objects.equals(name, groupData.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, id);
+    return Objects.hash(name);
   }
 }
