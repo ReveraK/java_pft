@@ -18,7 +18,7 @@ public class DeletionContactTestCase extends TestBase {
               "Queen", "Elizabeth 2", "monarch", "house of Windsor", "123456",
               "9115641235", "654321", "654321", "eliza@gmail.ru", "6",
               "February", "1952", "test name");
-      app.getContactHelper().createContact(contact, true);
+      app.getContactHelper().createContact(contact);
       app.getNavigationHelper().gotoHome();
 
 

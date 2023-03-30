@@ -23,7 +23,7 @@ public class AddNewContactTestCase extends TestBase {
     before.add(contactData);
 
     app.getNavigationHelper().gotoAddNew();
-    app.getContactHelper().createContact(contactData, true);
+    app.getContactHelper().createContact(contactData);
     app.getNavigationHelper().gotoHome();
     List<ContactData> after = app.getContactHelper().getСontactList();
     Comparator<? super ContactData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
