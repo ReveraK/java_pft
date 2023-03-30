@@ -24,4 +24,10 @@ public class ContactModificationTest extends TestBase {
     app.getContactHelper().submitContactModification();
 
   }
+
+  @Test
+  public void testTest(){
+    app.getNavigationHelper().gotoHome();
+    app.getContactHelper().getСontactList();
+  }
 }

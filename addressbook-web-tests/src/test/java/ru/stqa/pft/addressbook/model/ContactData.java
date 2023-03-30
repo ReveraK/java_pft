@@ -20,6 +20,7 @@ public final class ContactData {
   private final String bmonth;
   private final String byear;
   private final String group;
+  private int id;
 
   public ContactData(String firstname, String middlename, String lastname, String nickname, String title,
                      String company, String address, String telhome, String telmobile, String telwork, String fax,
@@ -40,6 +41,29 @@ public final class ContactData {
     this.bmonth = bmonth;
     this.byear = byear;
     this.group = group;
+
+    this.id = Integer.MAX_VALUE;
+  }
+
+  public ContactData(int id, String firstname, String lastname){
+    this.id = id;
+    this.firstname = firstname;
+    this.lastname = lastname;
+
+    this.middlename = null;
+    this.nickname = null;
+    this.title = null;
+    this.company = null;
+    this.address = null;
+    this.telhome = null;
+    this.telmobile = null;
+    this.telwork = null;
+    this.fax = null;
+    this.email = null;
+    this.bday = null;
+    this.bmonth = null;
+    this.byear = null;
+    this.group = null;
   }
 
   public String firstname() {
@@ -104,5 +128,31 @@ public final class ContactData {
 
   public String group() {
     return group;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "firstname='" + firstname + '\'' +
+            ", lastname='" + lastname + '\'' +
+            ", id=" + id +
+            '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ContactData that = (ContactData) o;
+    return Objects.equals(firstname, that.firstname) && Objects.equals(lastname, that.lastname);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(firstname, lastname);
   }
 }
