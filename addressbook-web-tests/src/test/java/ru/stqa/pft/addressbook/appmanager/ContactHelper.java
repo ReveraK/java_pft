@@ -67,8 +67,9 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//input[@value='Delete']"));
     accept();
   }
-  public void changeContact() {
-    click(By.xpath("//img[@alt='Edit']"));
+  public void changeContact(int index) {
+    //click(By.xpath("//img[@alt='Edit']"));
+    wd.findElements(By.name("entry")).get(index).findElements(By.cssSelector("td")).get(7).findElement(By.cssSelector("a")).click();
   }
 
   public void submitContactModification() {
