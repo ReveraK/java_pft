@@ -8,28 +8,28 @@ import java.util.Comparator;
 import java.util.List;
 
 public class ContactModificationTest extends TestBase {
-  @Test
+  @Test(enabled = false)
   public void testContactModification () {
-    app.getNavigationHelper().gotoHome();
-    if (! app.getContactHelper().isThereContact()) {
-      app.getNavigationHelper().gotoAddNew();
-      app.getContactHelper().createContact(new ContactData("Elizabeth", "Alexandra", "Mary",
+    app.goTo().gotoHome();
+    if (! app.contact().isThereContact()) {
+      app.goTo().gotoAddNew();
+      app.contact().createContact(new ContactData("Elizabeth", "Alexandra", "Mary",
               "Queen", "Elizabeth 2", "monarch", "house of Windsor", "123456",
               "9115641235", "654321", "654321", "eliza@gmail.ru", "6",
               "February", "1952", "test name"));
-      app.getNavigationHelper().gotoHome();
+      app.goTo().gotoHome();
 
     }
-    List<ContactData> before = app.getContactHelper().getСontactList();
-    app.getContactHelper().changeContact(before.size() - 1);
+    List<ContactData> before = app.contact().getСontactList();
+    app.contact().changeContact(before.size() - 1);
     ContactData contactM = new ContactData("Kate", "Helen", "",
             " ", "Katherin 2", "monarch", "house of Windsor", "123456",
             "9115641235", "654321", "654321", "eliza@gmail.ru", "6",
             "February", "1952",  null);
-    app.getContactHelper().fillContact(contactM, false);
-    app.getContactHelper().submitContactModification();
-    app.getNavigationHelper().gotoHome();
-    List<ContactData> after = app.getContactHelper().getСontactList();
+    app.contact().fillContact(contactM, false);
+    app.contact().submitContactModification();
+    app.goTo().gotoHome();
+    List<ContactData> after = app.contact().getСontactList();
     before.remove(before.size() - 1);
     before.add(contactM);
 

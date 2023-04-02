@@ -10,7 +10,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.Browser;
 
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
@@ -68,13 +67,13 @@ public class ApplicationManager {
     }
   }
 
-  public GroupsHelper getGroupsHelper() {
+  public GroupsHelper group() {
     return groupsHelper;
   }
 
-  public NavigationHelper getNavigationHelper() {
+  public NavigationHelper goTo() {
     return navigationHelper;
   }
 
-  public ContactHelper getContactHelper() {return contactHelper; }
+  public ContactHelper contact() {return contactHelper; }
 }
