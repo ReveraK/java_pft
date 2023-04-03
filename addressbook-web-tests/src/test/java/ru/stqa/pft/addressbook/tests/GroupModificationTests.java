@@ -19,18 +19,15 @@ public class GroupModificationTests extends TestBase{
   }
   @Test
   public void testGroupModification() {
-    List<GroupData> before = app.group().list();
-    int index = before.size() - 1;
+    Set<GroupData> before = app.group().all();
+    GroupData modifyGroup = before.iterator().next();
     GroupData group = new GroupData()
-            .withId(before.get(index).getId()).withName("test").withFooter("test").withHeder("test");
-    app.group().modifyGroup(index, group);
-    List<GroupData> after = app.group().list();
+            .withId(modifyGroup.getId()).withName("test").withFooter("test").withHeder("test");
+    app.group().modifyGroup(group);
+    Set<GroupData> after = app.group().all();
     Assert.assertEquals(after.size(), before.size());
-    before.remove(index);
+    before.remove(modifyGroup);
     before.add(group);
-    Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
-    before.sort(byId);
-    after.sort(byId);
     Assert.assertEquals(before, after);
 
   }
