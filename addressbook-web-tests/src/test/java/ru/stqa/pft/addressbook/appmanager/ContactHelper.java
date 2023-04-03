@@ -50,17 +50,16 @@ public class ContactHelper extends HelperBase {
     //}
   }
 
-  private void selectComboBox(String name, String value, String xpath){
+  private void selectComboBox(String name, String value){
     click(By.name(name));
     new Select(wd.findElement(By.name(name))).selectByVisibleText(value);
-    click(By.xpath(xpath));
   }
   public void selectDate(String name, String value){
 
-    selectComboBox(name, value, "//option[@value='"+ value +"']");
+    selectComboBox(name, value);
   }
   public void selectGroup(String name, String value){
-    selectComboBox(name, value, "//div[@id='content']/form/select[5]/option[2]");
+    selectComboBox(name, value);
   }
   public void DeleteContact() {
     click(By.xpath("//td/input"));

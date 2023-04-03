@@ -102,5 +102,14 @@ public class GroupsHelper extends HelperBase {
     return groups;
   }
 
+  public boolean isCheckGroupe(String nameGroup){
+    List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
+    for (WebElement element : elements) {
+      if (element.getText().equals(nameGroup)){
+        return true;
+      }
+    }
+    return false;
+  }
 
 }
