@@ -13,10 +13,10 @@ public class AddNewContactTestCase extends TestBase {
 
   @Test
   public void testAddNewContact() throws Exception {
-    ContactData contactData = new ContactData("Elizabeth", "Alexandra", "Mary",
-            "Queen", "Elizabeth 2", "monarch", "house of Windsor", "123456",
-            "9115641235", "654321", "654321", "eliza@gmail.ru", "6",
-            "February", "1952", "test name 6");
+    ContactData contactData = new ContactData ().withFirstname("Elizabeth").withMiddlename("Alexandra").withLastname("Mary").withNickname("Queen")
+            .withTitle("Elizabeth 2").withCompany("monarch").withAddress("house of Windsor").withTelhome("123456").withTelmobile("9115641235")
+            .withTelwork("654321").withFax("654321").withEmail("eliza@gmail.ru").withBday("6").withBmonth("February").withByear("1952").withGroup("test name 6");
+
 
     app.goTo().groupPage();
     if (!app.group().isCheckGroupe(contactData.group())){

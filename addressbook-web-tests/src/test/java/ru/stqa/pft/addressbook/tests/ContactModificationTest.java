@@ -16,10 +16,9 @@ public class ContactModificationTest extends TestBase {
     app.goTo().Home();
     if (app.contact().list().size() == 0) {
       app.goTo().AddNew();
-      app.contact().create(new ContactData("Elizabeth", "Alexandra", "Mary",
-              "Queen", "Elizabeth 2", "monarch", "house of Windsor", "123456",
-              "9115641235", "654321", "654321", "eliza@gmail.ru", "6",
-              "February", "1952", "test name"));
+      ContactData contactData = new ContactData ().withFirstname("Elizabeth").withMiddlename("Alexandra").withLastname("Mary").withNickname("Queen")
+              .withTitle("Elizabeth 2").withCompany("monarch").withAddress("house of Windsor").withTelhome("123456").withTelmobile("9115641235")
+              .withTelwork("654321").withFax("654321").withEmail("eliza@gmail.ru").withBday("6").withBmonth("February").withByear("1952").withGroup("test name 6");
       app.goTo().Home();
 
     }
@@ -30,10 +29,9 @@ public class ContactModificationTest extends TestBase {
     List<ContactData> before = app.contact().list();
     int index = before.size() - 1;
     app.contact().change(index);
-    ContactData contactM = new ContactData("Kate", "Helen", "",
-            " ", "Katherin 2", "monarch", "house of Windsor", "123456",
-            "9115641235", "654321", "654321", "eliza@gmail.ru", "6",
-            "February", "1952",  null);
+    ContactData contactM = new ContactData ().withFirstname("Elizabeth1").withMiddlename("Alexandra1").withLastname("Mary1").withNickname("Queen")
+            .withTitle("Elizabeth 2").withCompany("monarch").withAddress("house of Windsor").withTelhome("123456").withTelmobile("9115641235")
+            .withTelwork("654321").withFax("654321").withEmail("eliza@gmail.ru").withBday("6").withBmonth("February").withByear("1952").withGroup("test name 6");
 
     app.contact().fillContact(contactM, false);
     app.contact().submitContactModification();

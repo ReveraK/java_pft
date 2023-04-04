@@ -4,25 +4,128 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public final class ContactData {
-  private final String firstname;
-  private final String middlename;
-  private final String lastname;
-  private final String nickname;
-  private final String title;
-  private final String company;
-  private final String address;
-  private final String telhome;
-  private final String telmobile;
-  private final String telwork;
-  private final String fax;
-  private final String email;
-  private final String bday;
-  private final String bmonth;
-  private final String byear;
-  private final String group;
-  private int id;
+  private String firstname;
+  private String middlename;
+  private String lastname;
+  private String nickname;
+  private String title;
+  private String company;
+  private String address;
+  private String telhome;
+  private String telmobile;
+  private String telwork;
+  private String fax;
+  private String email;
+  private String bday;
+  private String bmonth;
+  private String byear;
+  private String group;
+  private int id = Integer.MAX_VALUE;
 
-  public ContactData(String firstname, String middlename, String lastname, String nickname, String title,
+  public ContactData withFirstname(String firstname) {
+    this.firstname = firstname;
+    return this;
+  }
+
+  public ContactData withMiddlename(String middlename) {
+    this.middlename = middlename;
+    return this;
+
+  }
+
+  public ContactData withLastname(String lastname) {
+    this.lastname = lastname;
+    return this;
+
+  }
+
+  public ContactData withNickname(String nickname) {
+    this.nickname = nickname;
+    return this;
+
+  }
+
+  public ContactData withTitle(String title) {
+    this.title = title;
+    return this;
+
+  }
+
+  public ContactData withCompany(String company) {
+    this.company = company;
+    return this;
+
+  }
+
+  public ContactData withAddress(String address) {
+    this.address = address;
+    return this;
+
+  }
+
+  public ContactData withTelhome(String telhome) {
+    this.telhome = telhome;
+    return this;
+
+  }
+
+  public ContactData withTelmobile(String telmobile) {
+    this.telmobile = telmobile;
+    return this;
+
+  }
+
+  public ContactData withTelwork(String telwork) {
+    this.telwork = telwork;
+    return this;
+
+  }
+
+  public ContactData withFax(String fax) {
+    this.fax = fax;
+    return this;
+
+  }
+
+  public ContactData withEmail(String email) {
+    this.email = email;
+    return this;
+
+  }
+
+  public ContactData withBday(String bday) {
+    this.bday = bday;
+    return this;
+
+  }
+
+  public ContactData withBmonth(String bmonth) {
+    this.bmonth = bmonth;
+    return this;
+
+  }
+
+  public ContactData withByear(String byear) {
+    this.byear = byear;
+    return this;
+
+  }
+
+  public ContactData withGroup(String group) {
+    this.group = group;
+    return this;
+
+  }
+
+  public ContactData withId(int id) {
+    this.id = id;
+    return this;
+
+  }
+
+
+
+  /* public ContactData(String firstname, String middlename, String lastname, String nickname, String title,
                      String company, String address, String telhome, String telmobile, String telwork, String fax,
                      String email, String bday, String bmonth, String byear, String group) {
     this.firstname = firstname;
@@ -65,6 +168,8 @@ public final class ContactData {
     this.byear = null;
     this.group = null;
   }
+
+   */
 
   public String firstname() {
     return firstname;
