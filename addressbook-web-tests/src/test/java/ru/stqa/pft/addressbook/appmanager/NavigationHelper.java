@@ -16,10 +16,10 @@ public class NavigationHelper extends HelperBase{
   public void groupPage() {
     gotoPage("groups");
   }
-  public void gotoAddNew() {
+  public void AddNew() {
     gotoPage("add new");
   }
-  public void gotoHome() {
+  public void Home() {
     gotoPage("home");
   }
 

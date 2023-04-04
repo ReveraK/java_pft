@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +48,10 @@ public class ContactHelper extends HelperBase {
      // selectGroup("new_group", contactData.group());
     //}
   }
-
+  public void create(ContactData contactData) {
+    fillContact(contactData, true);
+    submitContactCreation();
+  }
   private void selectComboBox(String name, String value){
     click(By.name(name));
     new Select(wd.findElement(By.name(name))).selectByVisibleText(value);
@@ -61,12 +63,12 @@ public class ContactHelper extends HelperBase {
   public void selectGroup(String name, String value){
     selectComboBox(name, value);
   }
-  public void DeleteContact() {
+  public void Delete() {
     click(By.xpath("//td/input"));
     click(By.xpath("//input[@value='Delete']"));
     accept();
   }
-  public void changeContact(int index) {
+  public void change(int index) {
     //click(By.xpath("//img[@alt='Edit']"));
     wd.findElements(By.name("entry")).get(index).findElements(By.cssSelector("td")).get(7).findElement(By.cssSelector("a")).click();
   }
@@ -77,16 +79,13 @@ public class ContactHelper extends HelperBase {
   }
 
 
-  public void createContact(ContactData contactData) {
-    fillContact(contactData, true);
-    submitContactCreation();
-  }
+
 
   public boolean isThereContact() {
     return isElementPresent(By.xpath("//td/input"));
   }
 
-  public List<ContactData> getСontactList() {
+  public List<ContactData> list() {
     List<ContactData> contacts = new ArrayList<ContactData>();
     List<WebElement> elements = wd.findElements(By.name("entry"));
     for (WebElement element : elements) {
