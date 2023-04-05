@@ -14,8 +14,12 @@ public final class ContactData {
   private String telhome;
   private String telmobile;
   private String telwork;
+  private String allPhones;
   private String fax;
   private String email;
+  private String email2;
+  private String email3;
+  private String allEmail;
   private String bday;
   private String bmonth;
   private String byear;
@@ -86,13 +90,27 @@ public final class ContactData {
     return this;
 
   }
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
 
   public ContactData withEmail(String email) {
     this.email = email;
     return this;
-
   }
-
+  public ContactData withEmail2(String email2) {
+    this.email2 = email2;
+    return this;
+  }
+  public ContactData withEmail3(String email3) {
+    this.email3 = email3;
+    return this;
+  }
+  public ContactData withAllEmail(String allEmail) {
+    this.allEmail = allEmail;
+    return this;
+  }
   public ContactData withBday(String bday) {
     this.bday = bday;
     return this;
@@ -218,6 +236,12 @@ public final class ContactData {
   public String email() {
     return email;
   }
+  public String email2() {
+    return email2;
+  }
+  public String email3() {
+    return email3;
+  }
 
   public String bday() {
     return bday;
@@ -239,6 +263,12 @@ public final class ContactData {
     return id;
   }
 
+  public String allPhones() {
+    return allPhones;
+  }
+  public String allEmail() {
+    return allEmail;
+  }
   @Override
   public String toString() {
     return "ContactData{" +

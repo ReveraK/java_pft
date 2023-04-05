@@ -10,6 +10,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 public class AddNewContactTestCase extends TestBase {
 
+
   @Test
   public void testAddNewContact() throws Exception {
     ContactData contactData = new ContactData ().withFirstname("Elizabeth").withMiddlename("Alexandra").withLastname("Mary").withNickname("Queen")
