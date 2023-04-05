@@ -18,10 +18,15 @@ public class DeletionContactTestCase extends TestBase {
   public void ensurePreconditions() {
     app.goTo().Home();
     if (app.contact().list().size() == 0) {
-      app.goTo().AddNew();
       ContactData contactData = new ContactData ().withFirstname("Elizabeth").withMiddlename("Alexandra").withLastname("Mary").withNickname("Queen")
               .withTitle("Elizabeth 2").withCompany("monarch").withAddress("house of Windsor").withTelhome("123456").withTelmobile("9115641235")
               .withTelwork("654321").withFax("654321").withEmail("eliza@gmail.ru").withBday("6").withBmonth("February").withByear("1952").withGroup("test name 6");
+
+      app.goTo().groupPage();
+      app.group().checkGroup(contactData.group());
+
+      app.goTo().AddNew();
+      app.contact().create(contactData);
       app.goTo().Home();
 
     }

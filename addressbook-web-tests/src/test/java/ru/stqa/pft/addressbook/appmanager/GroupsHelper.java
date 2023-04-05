@@ -106,7 +106,7 @@ public class GroupsHelper extends HelperBase {
     return new Groups(groupCache);
   }
 
-  public boolean isCheckGroupe(String nameGroup){
+  public boolean isCheckGroup(String nameGroup){
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
     for (WebElement element : elements) {
       if (element.getText().equals(nameGroup)){
@@ -114,6 +114,13 @@ public class GroupsHelper extends HelperBase {
       }
     }
     return false;
+  }
+
+  public void checkGroup(String nameGroup){
+    if (!isCheckGroup(nameGroup)){
+      GroupData group = new GroupData().withName(nameGroup);
+      createGroup(group);
+    }
   }
 
 }

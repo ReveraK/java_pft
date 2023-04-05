@@ -19,10 +19,7 @@ public class AddNewContactTestCase extends TestBase {
 
 
     app.goTo().groupPage();
-    if (!app.group().isCheckGroupe(contactData.group())){
-      GroupData group = new GroupData().withName(contactData.group());
-      app.group().createGroup(group);
-    }
+    app.group().checkGroup(contactData.group());
 
     app.goTo().Home();
 
