@@ -8,4 +8,5 @@ dependencies {
     implementation 'org.testng:testng:6.9.10'
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.8.1'
     implementation group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
+    implementation group: 'com.beust', name: 'jcommander', version: '1.48'
 }
