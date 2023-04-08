@@ -40,6 +40,7 @@ public class ContactHelper extends HelperBase {
     selectDate("bday", contactData.bday());
     selectDate("bmonth", contactData.bmonth());
     type(By.name("byear"), contactData.byear());
+    attach(By.name("photo"), contactData.photo());
 
     if (creation) {
       selectGroup("new_group", contactData.group());
