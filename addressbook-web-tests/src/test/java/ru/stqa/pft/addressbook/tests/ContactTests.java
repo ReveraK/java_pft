@@ -38,24 +38,10 @@ public class ContactTests extends TestBase {
    // assertThat(contact.telmobile(), equalTo(cleaned(contactInfoFromEditForm.telmobile())));
    // assertThat(contact.telwork(), equalTo(cleaned(contactInfoFromEditForm.telwork())));
     assertThat(contact.allPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
-  }
-  @Test
-  public void testContactEmail() {
-    app.goTo().Home();
-    ContactData contact = app.contact().all().iterator().next();
-    ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
     assertThat(contact.allEmail(), equalTo(mergeEmails(contactInfoFromEditForm)));
+    assertThat(contact.address(), equalTo(contactInfoFromEditForm.address().trim()));
   }
 
-
-
-  @Test
-  public void testContactAddress() {
-    app.goTo().Home();
-    ContactData contact = app.contact().all().iterator().next();
-    ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
-    assertThat(contact.address(), equalTo(contactInfoFromEditForm.address().trim()));
-    }
   private String  mergeEmails(ContactData contact) {
     return Arrays.asList(contact.email(),contact.email2(),contact.email3())
             .stream().filter((s) -> ! s.equals(""))
