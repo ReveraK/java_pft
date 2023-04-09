@@ -22,7 +22,7 @@ public class GroupsHelper extends HelperBase {
 
   public void fillGroupForm(GroupData groupData) {
     type(By.name("group_name"), groupData.name());
-    type(By.name("group_header"), groupData.heder());
+    type(By.name("group_header"), groupData.header());
     type(By.name("group_footer"), groupData.footer());
   }
 
