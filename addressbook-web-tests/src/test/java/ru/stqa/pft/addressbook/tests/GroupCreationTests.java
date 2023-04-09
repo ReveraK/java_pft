@@ -5,6 +5,7 @@ import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -15,12 +16,16 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GroupCreationTests extends TestBase {
   @DataProvider
-  public Iterator<Object[]> validGroups() {
+  public Iterator<Object[]> validGroups() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
-    list.add(new  Object[] {new GroupData().withName("test1").withHeder("header1").withFooter("footer1")});
-    list.add(new  Object[] {new GroupData().withName("test2").withHeder("header2").withFooter("footer2")});
-    list.add(new  Object[] {new GroupData().withName("test3").withHeder("header3").withFooter("footer3")});
-
+    //list.add(new  Object[] {new GroupData().withName("test1").withHeder("header1").withFooter("footer1")});
+    BufferedReader reader = new BufferedReader( new FileReader(new File("src/test/resources/groups.csv")));
+    String line = reader.readLine();
+    while (line != null) {
+      String[] split = line.split(";");
+      list.add(new Object[] {new GroupData().withName(split[0]).withHeder(split[1]).withFooter(split[2])});
+      line = reader.readLine();
+    }
     return list.iterator();
   }
 
