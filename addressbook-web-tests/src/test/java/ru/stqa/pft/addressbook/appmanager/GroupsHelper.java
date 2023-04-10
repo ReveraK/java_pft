@@ -117,10 +117,11 @@ public class GroupsHelper extends HelperBase {
   }
 
   public void checkGroup(String nameGroup){
-    if (!isCheckGroup(nameGroup)){
-      GroupData group = new GroupData().withName(nameGroup);
-      createGroup(group);
+    if (nameGroup != null){
+      if (!isCheckGroup(nameGroup)){
+        GroupData group = new GroupData().withName(nameGroup);
+        createGroup(group);
+      }
     }
   }
-
 }

@@ -58,12 +58,15 @@ public class ContactHelper extends HelperBase {
     submitContactCreation();
   }
   private void selectComboBox(String name, String value){
-    click(By.name(name));
-    new Select(wd.findElement(By.name(name))).selectByVisibleText(value);
+    if (value != null){
+      click(By.name(name));
+      new Select(wd.findElement(By.name(name))).selectByVisibleText(value);
+    }
   }
   public void selectDate(String name, String value){
-
-    selectComboBox(name, value);
+    if (value != null){
+      selectComboBox(name, value);
+    }
   }
   public void selectGroup(String name, String value){
     selectComboBox(name, value);
