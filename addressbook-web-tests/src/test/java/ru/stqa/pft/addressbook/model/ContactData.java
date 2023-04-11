@@ -4,55 +4,91 @@ package ru.stqa.pft.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
 @XStreamAlias("contact")
+@Entity
+@Table(name = "addressbook")
 public final class ContactData {
   @Expose
+  @Column(name = "firstname")
   private String firstname;
   @Expose
+  @Column(name = "middlename")
   private String middlename;
   @Expose
+  @Column(name = "lastname")
   private String lastname;
   @Expose
+  @Column(name = "nickname")
   private String nickname;
   @Expose
+  @Column(name = "title")
   private String title;
   @Expose
+  @Column(name = "company")
   private String company;
   @Expose
+  @Column(name = "address")
+  @Type(type = "text")
   private String address;
   @Expose
+  @Column(name = "home")
+  @Type(type = "text")
   private String telhome;
   @Expose
+  @Column(name = "mobile")
+  @Type(type = "text")
   private String telmobile;
   @Expose
+  @Column(name = "work")
+  @Type(type = "text")
   private String telwork;
   @Expose
+  @Transient
   private String allPhones;
   @Expose
+  @Column(name = "fax")
+  @Type(type = "text")
   private String fax;
   @Expose
+  @Column(name = "email")
+  @Type(type = "text")
   private String email;
   @Expose
+  @Column(name = "email2")
+  @Type(type = "text")
   private String email2;
   @Expose
+  @Column(name = "email3")
+  @Type(type = "text")
   private String email3;
   @Expose
+  @Transient
   private String allEmail;
   @Expose
-  private String bday;
+  @Column(name = "bday")
+  private byte bday;
   @Expose
+  @Column(name = "bmonth")
   private String bmonth;
   @Expose
+  @Column(name = "byear")
   private String byear;
   @Expose
+  @Transient
   private String group;
   @XStreamOmitField
+  @Id
+  @Column(name = "id")
   private int id = Integer.MAX_VALUE;
-  private transient File photo;
+  @Column(name = "photo")
+  @Type(type = "text")
+  private String photo;
 
   public ContactData withFirstname(String firstname) {
     this.firstname = firstname;
@@ -62,7 +98,7 @@ public final class ContactData {
 
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
 
@@ -147,7 +183,7 @@ public final class ContactData {
     return this;
   }
   public ContactData withBday(String bday) {
-    this.bday = bday;
+    this.bday = Byte.parseByte(bday);
     return this;
 
   }
@@ -279,7 +315,7 @@ public final class ContactData {
   }
 
   public String bday() {
-    return bday;
+    return Byte.toString(bday);
   }
 
   public String bmonth() {
@@ -290,7 +326,7 @@ public final class ContactData {
     return byear;
   }
   public File photo() {
-    return photo;
+    return new File (photo);
   }
   public String group() {
     return group;
