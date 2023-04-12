@@ -90,7 +90,7 @@ public class ContactDataGenerator {
               .withAddress(String.format("house of Windsor %s", i)).withTelhome(String.format("123456%s", i))
               .withTelmobile(String.format("123456%s", i)).withTelwork(String.format("123456%s", i))
               .withFax(String.format("123456%s", i)).withEmail(String.format("eliza%s@gmail.ru", i))
-              .withBday("6").withBmonth("February").withByear("1952").withGroup("group5"));
+              .withBday("6").withBmonth("February").withByear("1952").inGroup(new GroupData().withName("group5")));
     }
     return contacts;
   }

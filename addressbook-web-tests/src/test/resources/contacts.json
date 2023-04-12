@@ -15,7 +15,11 @@
     "bday": 6,
     "bmonth": "February",
     "byear": "1952",
-    "group": "group5"
+    "groups": [
+      {
+        "name": "group5"
+      }
+    ]
   },
   {
     "firstname": "Elizabeth 1",
@@ -33,7 +37,11 @@
     "bday": 6,
     "bmonth": "February",
     "byear": "1952",
-    "group": "group5"
+    "groups": [
+      {
+        "name": "group5"
+      }
+    ]
   },
   {
     "firstname": "Elizabeth 2",
@@ -51,7 +59,11 @@
     "bday": 6,
     "bmonth": "February",
     "byear": "1952",
-    "group": "group5"
+    "groups": [
+      {
+        "name": "group5"
+      }
+    ]
   },
   {
     "firstname": "Elizabeth 3",
@@ -69,6 +81,10 @@
     "bday": 6,
     "bmonth": "February",
     "byear": "1952",
-    "group": "group5"
+    "groups": [
+      {
+        "name": "group5"
+      }
+    ]
   }
 ]

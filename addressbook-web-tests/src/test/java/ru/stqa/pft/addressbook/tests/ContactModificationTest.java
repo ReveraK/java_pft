@@ -7,6 +7,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.util.Comparator;
 import java.util.List;
@@ -41,10 +43,8 @@ public class ContactModificationTest extends TestBase {
       if (app.contact().list().size() == 0) {
         ContactData contactData = new ContactData ().withFirstname("Elizabeth").withMiddlename("Alexandra").withLastname("Mary").withNickname("Queen")
                 .withTitle("Elizabeth 2").withCompany("monarch").withAddress("house of Windsor").withTelhome("123456").withTelmobile("9115641235")
-                .withTelwork("654321").withFax("654321").withEmail("eliza@gmail.ru").withBday("6").withBmonth("February").withByear("1952").withGroup("test name 6");
+                .withTelwork("654321").withFax("654321").withEmail("eliza@gmail.ru").withBday("6").withBmonth("February").withByear("1952");
 
-        app.goTo().groupPage();
-        app.group().checkGroup(contactData.group());
 
         app.goTo().AddNew();
         app.contact().create(contactData);
@@ -62,7 +62,7 @@ public class ContactModificationTest extends TestBase {
     app.contact().change(modifyContact.getId());
     ContactData contactM = new ContactData().withFirstname("Elizabeth1").withMiddlename("Alexandra1").withLastname("Mary1").withNickname("Queen")
             .withTitle("Elizabeth 2").withCompany("monarch").withAddress("house of Windsor").withTelhome("123456").withTelmobile("9115641235")
-            .withTelwork("654321").withFax("654321").withEmail("eliza@gmail.ru").withBday("6").withBmonth("February").withByear("1952").withGroup("test name 6")
+            .withTelwork("654321").withFax("654321").withEmail("eliza@gmail.ru").withBday("6").withBmonth("February").withByear("1952")
             .withId(modifyContact.getId());
 
     app.contact().fillContact(contactM, false);

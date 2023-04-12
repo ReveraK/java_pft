@@ -3,10 +3,13 @@ package ru.stqa.pft.addressbook.tests;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.*;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 
 import java.io.BufferedReader;
@@ -64,8 +67,13 @@ public class AddNewContactTestCase extends TestBase {
      //       .withPhoto(photo);
 
 
-    app.goTo().groupPage();
-    app.group().checkGroup(contact.group());
+//    app.goTo().groupPage();
+//    app.group().checkGroup(contact.group());
+    GroupData group = contact.getGroups().iterator().next();
+    if (!checkGroup(group)){
+      app.goTo().groupPage();
+      app.group().createGroup(group);
+    }
     app.goTo().Home();
     //Contacts before = app.contact().all();
     Contacts before = app.db().contacts();
@@ -82,6 +90,16 @@ public class AddNewContactTestCase extends TestBase {
     assertThat(after, equalTo(
             before.withAdded(contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
 
+  }
+
+  public boolean checkGroup(GroupData contactGroup){
+    Groups groups = app.db().groups();
+    for (GroupData group : groups) {
+      if (group.name().equals(contactGroup.name())){
+        return true;
+      }
+    }
+    return false;
   }
 
 }
