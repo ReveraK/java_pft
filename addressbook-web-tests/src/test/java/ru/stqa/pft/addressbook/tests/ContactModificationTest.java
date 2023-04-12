@@ -20,7 +20,7 @@ public class ContactModificationTest extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.goTo().Home();
+    /*app.goTo().Home();
     if (app.contact().list().size() == 0) {
       ContactData contactData = new ContactData ().withFirstname("Elizabeth").withMiddlename("Alexandra").withLastname("Mary").withNickname("Queen")
               .withTitle("Elizabeth 2").withCompany("monarch").withAddress("house of Windsor").withTelhome("123456").withTelmobile("9115641235")
@@ -33,14 +33,34 @@ public class ContactModificationTest extends TestBase {
       app.contact().create(contactData);
       app.goTo().Home();
     }
+
+
+     */
+    app.goTo().Home();
+    if (app.db().contacts().size() == 0) {
+      if (app.contact().list().size() == 0) {
+        ContactData contactData = new ContactData ().withFirstname("Elizabeth").withMiddlename("Alexandra").withLastname("Mary").withNickname("Queen")
+                .withTitle("Elizabeth 2").withCompany("monarch").withAddress("house of Windsor").withTelhome("123456").withTelmobile("9115641235")
+                .withTelwork("654321").withFax("654321").withEmail("eliza@gmail.ru").withBday("6").withBmonth("February").withByear("1952").withGroup("test name 6");
+
+        app.goTo().groupPage();
+        app.group().checkGroup(contactData.group());
+
+        app.goTo().AddNew();
+        app.contact().create(contactData);
+        app.goTo().Home();
+      }
+    }
   }
+
   @Test
   public void testContactModification () {
 
-    Contacts before = app.contact().all();
+    //Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     ContactData modifyContact = before.iterator().next();
     app.contact().change(modifyContact.getId());
-    ContactData contactM = new ContactData ().withFirstname("Elizabeth1").withMiddlename("Alexandra1").withLastname("Mary1").withNickname("Queen")
+    ContactData contactM = new ContactData().withFirstname("Elizabeth1").withMiddlename("Alexandra1").withLastname("Mary1").withNickname("Queen")
             .withTitle("Elizabeth 2").withCompany("monarch").withAddress("house of Windsor").withTelhome("123456").withTelmobile("9115641235")
             .withTelwork("654321").withFax("654321").withEmail("eliza@gmail.ru").withBday("6").withBmonth("February").withByear("1952").withGroup("test name 6")
             .withId(modifyContact.getId());
@@ -48,7 +68,8 @@ public class ContactModificationTest extends TestBase {
     app.contact().fillContact(contactM, false);
     app.contact().submitContactModification();
     app.goTo().Home();
-    Contacts after = app.contact().all();
+    //Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
     assertThat(after, equalTo(before.without(modifyContact).withAdded(contactM)));
 
   }

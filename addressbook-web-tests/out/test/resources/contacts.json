@@ -12,7 +12,7 @@
     "telwork": "1234560",
     "fax": "1234560",
     "email": "eliza0@gmail.ru",
-    "bday": "6",
+    "bday": 6,
     "bmonth": "February",
     "byear": "1952",
     "group": "group5"
@@ -30,7 +30,7 @@
     "telwork": "1234561",
     "fax": "1234561",
     "email": "eliza1@gmail.ru",
-    "bday": "6",
+    "bday": 6,
     "bmonth": "February",
     "byear": "1952",
     "group": "group5"
@@ -48,7 +48,7 @@
     "telwork": "1234562",
     "fax": "1234562",
     "email": "eliza2@gmail.ru",
-    "bday": "6",
+    "bday": 6,
     "bmonth": "February",
     "byear": "1952",
     "group": "group5"
@@ -66,7 +66,7 @@
     "telwork": "1234563",
     "fax": "1234563",
     "email": "eliza3@gmail.ru",
-    "bday": "6",
+    "bday": 6,
     "bmonth": "February",
     "byear": "1952",
     "group": "group5"

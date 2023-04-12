@@ -67,11 +67,13 @@ public class AddNewContactTestCase extends TestBase {
     app.goTo().groupPage();
     app.group().checkGroup(contact.group());
     app.goTo().Home();
-    Contacts before = app.contact().all();
+    //Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     app.goTo().AddNew();
     app.contact().create(contact);
     app.goTo().Home();
-    Contacts after = app.contact().all();
+    //Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
     //Comparator<? super ContactData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
     //before.sort(byId);
     //after.sort(byId);

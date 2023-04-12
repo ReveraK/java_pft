@@ -88,6 +88,7 @@ public final class ContactData {
   private int id = Integer.MAX_VALUE;
   @Column(name = "photo")
   @Type(type = "text")
+  @Transient
   private String photo;
 
   public ContactData withFirstname(String firstname) {
@@ -326,7 +327,11 @@ public final class ContactData {
     return byear;
   }
   public File photo() {
-    return new File (photo);
+    if (photo != null){
+      return new File (photo);
+    }else {
+      return null;
+    }
   }
   public String group() {
     return group;
