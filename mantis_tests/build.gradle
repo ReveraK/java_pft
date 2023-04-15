@@ -13,6 +13,8 @@ dependencies {
     implementation group: 'org.subethamail', name: 'subethasmtp', version: '3.1.7'
     implementation group: 'ru.lanwen.verbalregex', name: 'java-verbal-expressions', version: '1.4'
     implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.5'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.38'
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.6.15.Final'
 }
 test {
     useTestNG {

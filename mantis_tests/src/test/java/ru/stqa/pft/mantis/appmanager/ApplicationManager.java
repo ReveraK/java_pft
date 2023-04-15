@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.Browser;
+import ru.stqa.pft.mantis.model.User;
 
 import javax.transaction.xa.XAResource;
 import java.io.File;
@@ -23,6 +24,9 @@ public class ApplicationManager {
   private RegistrationHelper registrationHelper;
   private FtpHelper ftpHelper;
   private MailHelper mailHelper;
+  private DbHelper dbHelper;
+  private UserHelper userHelper;
+  private NavigationHelper navigationHelper;
 
   public ApplicationManager(String browser) {
     properties = new Properties();
@@ -56,11 +60,25 @@ public class ApplicationManager {
     return registrationHelper;
   }
 
+  public UserHelper user() {
+    if (userHelper == null){
+      userHelper = new UserHelper(this);
+    }
+    return userHelper;
+  }
+
   public MailHelper mail() {
     if (mailHelper == null){
       mailHelper = new MailHelper(this);
     }
     return mailHelper;
+  }
+
+  public NavigationHelper navigation() {
+    if (navigationHelper == null){
+      navigationHelper = new NavigationHelper(this);
+    }
+    return navigationHelper;
   }
 
   public WebDriver getDriver() {
@@ -87,5 +105,12 @@ public class ApplicationManager {
       ftpHelper = new FtpHelper(this);
     }
     return ftpHelper;
+  }
+
+  public DbHelper db() {
+    if (dbHelper == null){
+      dbHelper = new DbHelper();
+    }
+    return dbHelper;
   }
 }

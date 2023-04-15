@@ -51,4 +51,15 @@ public class HelperBase {
   public void accept(){
     wd.switchTo().alert().accept();
   }
+
+  public void adminLogin(){
+    login(app.getProperty("web.adminLogin"), app.getProperty("web.adminPassword"));
+  }
+
+  public void login(String name, String password){
+    type(By.name("username"), name);
+    click(By.cssSelector("input[value=\"Вход\"]"));
+    type(By.name("password"), password);
+    click(By.cssSelector("input[value=\"Вход\"]"));
+  }
 }
