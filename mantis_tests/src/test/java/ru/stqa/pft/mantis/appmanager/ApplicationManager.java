@@ -22,6 +22,7 @@ public class ApplicationManager {
   private String browser;
   private RegistrationHelper registrationHelper;
   private FtpHelper ftpHelper;
+  private MailHelper mailHelper;
 
   public ApplicationManager(String browser) {
     properties = new Properties();
@@ -53,6 +54,13 @@ public class ApplicationManager {
       registrationHelper = new RegistrationHelper(this);
     }
     return registrationHelper;
+  }
+
+  public MailHelper mail() {
+    if (mailHelper == null){
+      mailHelper = new MailHelper(this);
+    }
+    return mailHelper;
   }
 
   public WebDriver getDriver() {
