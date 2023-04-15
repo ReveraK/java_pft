@@ -69,10 +69,12 @@ public class AddNewContactTestCase extends TestBase {
 
 //    app.goTo().groupPage();
 //    app.group().checkGroup(contact.group());
-    GroupData group = contact.getGroups().iterator().next();
-    if (!checkGroup(group)){
-      app.goTo().groupPage();
-      app.group().createGroup(group);
+    if (contact.getGroups().size() > 0){
+      GroupData group = contact.getGroups().iterator().next();
+      if (!checkGroup(group)){
+        app.goTo().groupPage();
+        app.group().createGroup(group);
+      }
     }
     app.goTo().Home();
     //Contacts before = app.contact().all();

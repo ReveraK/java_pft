@@ -58,4 +58,16 @@ public class TestBase {
               .collect(Collectors.toSet())));
     }
   }
+
+  public boolean checkGroup(GroupData contactGroup){
+    if (contactGroup != null){
+      Groups groups = app.db().groups();
+      for (GroupData group : groups) {
+        if (group.name().equals(contactGroup.name())){
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }

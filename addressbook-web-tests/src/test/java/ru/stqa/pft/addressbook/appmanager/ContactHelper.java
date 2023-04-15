@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.Converter;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -66,6 +67,10 @@ public class ContactHelper extends HelperBase {
       new Select(wd.findElement(By.name(name))).selectByVisibleText(value);
     }
   }
+  private void selectComboBox(String name, int id){
+    click(By.name(name));
+    new Select(wd.findElement(By.name(name))).selectByValue(Integer.toString(id));
+  }
   public void selectDate(String name, String value){
     if (value != null){
       selectComboBox(name, value);
@@ -95,6 +100,20 @@ public class ContactHelper extends HelperBase {
         return;
       }
     }
+  }
+
+  public void inGroup(int id, GroupData group){
+    Assert.assertNotNull(group);
+    click(By.id(Integer.toString(id)));
+    selectComboBox("to_group", group.getId());
+    click(By.name("add"));
+  }
+
+  public void removeGroup(int id, GroupData group){
+    Assert.assertNotNull(group);
+    selectComboBox("group", group.getId());
+    click(By.id(Integer.toString(id)));
+    click(By.name("remove"));
   }
 
   public void submitContactModification() {

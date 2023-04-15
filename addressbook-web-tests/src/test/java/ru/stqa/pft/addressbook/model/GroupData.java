@@ -33,7 +33,7 @@ public class GroupData {
   private int id = Integer.MAX_VALUE;
 
 
-  @ManyToMany(mappedBy = "groups")
+  @ManyToMany(mappedBy = "groups", fetch = FetchType.EAGER)
   private Set<ContactData> contacts = new HashSet<ContactData>();
 
   /*
