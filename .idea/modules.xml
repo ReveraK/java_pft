@@ -6,6 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis_tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis_tests.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis_tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis_tests.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-sample.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-sample.test.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-sample.test.iml" />
     </modules>
   </component>
 </project>
