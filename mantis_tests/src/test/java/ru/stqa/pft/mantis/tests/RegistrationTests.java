@@ -20,7 +20,8 @@ public class RegistrationTests extends TestBase {
 
   @Test
   public void testRegistration() throws MessagingException, IOException, ServiceException {
-    skipIfNotFixed(4);
+    //skipIfNotFixed(4);
+    skipIfNotFixedBugify(278);
     long now = System.currentTimeMillis();
     String user = "user" + now;
     String email = user + "@localhost.localdomain";

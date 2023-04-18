@@ -16,6 +16,8 @@ dependencies {
     implementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.38'
     implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.6.15.Final'
     implementation group: 'biz.futureware.mantis', name: 'mantis-axis-soap-client', version: '1.2.19'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'org.apache.httpcomponents:fluent-hc:4.5.14'
 }
 test {
     useTestNG {
