@@ -1,15 +1,12 @@
 package ru.stqa.pft.mantis.appmanager;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.Browser;
-import ru.stqa.pft.mantis.model.User;
 
-import javax.transaction.xa.XAResource;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -27,6 +24,7 @@ public class ApplicationManager {
   private DbHelper dbHelper;
   private UserHelper userHelper;
   private NavigationHelper navigationHelper;
+  private SoapHelper soapHelper;
 
   public ApplicationManager(String browser) {
     properties = new Properties();
@@ -79,6 +77,13 @@ public class ApplicationManager {
       navigationHelper = new NavigationHelper(this);
     }
     return navigationHelper;
+  }
+
+  public SoapHelper soap() {
+    if (soapHelper == null){
+      soapHelper = new SoapHelper(this);
+    }
+    return soapHelper;
   }
 
   public WebDriver getDriver() {
