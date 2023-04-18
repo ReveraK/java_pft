@@ -4,10 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/github-sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/github-sample.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/github-sample.test.iml" filepath="$PROJECT_DIR$/.idea/modules/github-sample.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis_tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis_tests.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis_tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis_tests.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/rest-sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/rest-sample.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/rest-sample.test.iml" filepath="$PROJECT_DIR$/.idea/modules/rest-sample.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sendbox.test.iml" filepath="$PROJECT_DIR$/.idea/modules/sendbox.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-sample.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-sample.test.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-sample.test.iml" />
     </modules>
