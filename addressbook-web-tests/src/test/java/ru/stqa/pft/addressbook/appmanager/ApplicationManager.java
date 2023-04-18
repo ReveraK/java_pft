@@ -2,18 +2,19 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
-//import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.Browser;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -38,16 +39,22 @@ public class ApplicationManager {
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
     dbHelper = new DbHelper();
-    if (browser.equals(Browser.FIREFOX.browserName())) {
-      wd = new FirefoxDriver();
-    } else if (browser.equals(Browser.CHROME.browserName())) {
-      System.setProperty("chromedriver.chrome.driver", "path_here");
-      ChromeOptions options = new ChromeOptions();
-      options.addArguments("--remote-allow-origins=*");
-      wd = new ChromeDriver(options);
-      //wd = new ChromeDriver();
-    } else if (browser.equals(Browser.IE.browserName())) {
-      wd = new InternetExplorerDriver();
+    if ("".equals(properties.getProperty("selenium.server"))){
+      if (browser.equals(Browser.FIREFOX.browserName())) {
+        wd = new FirefoxDriver();
+      } else if (browser.equals(Browser.CHROME.browserName())) {
+        System.setProperty("chromedriver.chrome.driver", "path_here");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        wd = new ChromeDriver(options);
+        //wd = new ChromeDriver();
+      } else if (browser.equals(Browser.IE.browserName())) {
+        wd = new InternetExplorerDriver();
+      }
+    } else {
+      DesiredCapabilities capabilities = new DesiredCapabilities();
+      capabilities.setBrowserName(browser);
+      wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
     }
     //wd = new ChromeDriver();
     //wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
