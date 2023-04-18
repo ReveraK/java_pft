@@ -3,11 +3,11 @@ package ru.stqa.pft.mantis.tests;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import ru.lanwen.verbalregex.VerbalExpression;
 import ru.stqa.pft.mantis.model.MailMessage;
 import ru.stqa.pft.mantis.model.User;
 
 import javax.mail.MessagingException;
+import javax.xml.rpc.ServiceException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
@@ -22,7 +22,8 @@ public class ChangePasswordTest extends TestBase {
   }
 
   @Test
-  public void testChangePassword() throws MessagingException, IOException {
+  public void testChangePassword() throws MessagingException, IOException, ServiceException {
+    skipIfNotFixed(3);
     User user = app.db().users().stream().findAny().orElse(null);
     int countMsg = 1;
     if (user == null){
